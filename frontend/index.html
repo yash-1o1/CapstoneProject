@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Chat</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Name Entry Modal -->
+    <div id="name-modal" class="modal">
+        <div class="modal-card">
+            <div class="modal-icon">💬</div>
+            <h2>Team Chat</h2>
+            <p>Enter your display name to join the conversation</p>
+            <form id="name-form">
+                <input type="text" id="name-input" placeholder="Your display name..." maxlength="30" autocomplete="off" required>
+                <button type="submit">Join Chat</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Chat Application -->
+    <div id="chat-app" class="hidden">
+        <!-- Left Sidebar -->
+        <aside id="sidebar">
+            <div class="sidebar-brand">
+                <span class="brand-name">TEAM<span class="brand-accent">CHAT</span></span>
+            </div>
+            <div class="sidebar-search">
+                <input type="text" placeholder="Search user or chat" disabled>
+            </div>
+            <div class="sidebar-section">
+                <div class="section-title">
+                    <span>Online</span>
+                    <span class="badge" id="online-badge">0</span>
+                </div>
+                <ul id="user-list"></ul>
+            </div>
+        </aside>
+
+        <!-- Center Chat -->
+        <main id="chat-panel">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="chat-header-left">
+                    <div id="header-avatars" class="header-avatars"></div>
+                    <div class="chat-title">
+                        <h2>Team Room</h2>
+                    </div>
+                </div>
+                <div class="chat-header-actions">
+                    <button class="header-btn" title="Info">i</button>
+                </div>
+            </div>
+
+            <!-- Messages -->
+            <div id="message-area">
+                <!-- Messages appended here -->
+            </div>
+
+            <!-- Typing Indicator -->
+            <div id="typing-indicator" class="typing-bar hidden">
+                <div class="typing-dots"><span></span><span></span><span></span></div>
+                <span id="typing-text"></span>
+            </div>
+
+            <!-- Message Input -->
+            <div class="message-input-area">
+                <div class="input-avatar" id="my-avatar"></div>
+                <form id="message-form">
+                    <input type="text" id="message-input" placeholder="Type a message here..." maxlength="500" autocomplete="off">
+                    <button type="submit" class="send-btn" title="Send">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="/app.js"></script>
+</body>
+</html>
